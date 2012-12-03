@@ -13,32 +13,30 @@ nmap <leader>ve :tabedit $MYVIMRC<CR>
 if has("autocmd")
 	autocmd bufwritepost .vimrc source $MYVIMRC
 endif
+
 " Intuitive backspacing in insert mode
 set backspace=indent,eol,start
  
-" File-type highlighting and configuration.
-" Run :filetype (without args) to see what you may have
-" to turn on yourself, or just set them all to be sure.
 syntax on
 filetype on
 filetype plugin on
 filetype indent on
  
-" Highlight search terms...
+" Search settings
 set hlsearch
-set incsearch " ...dynamically as they are typed.
+set incsearch 
 
 set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
-let g:tagbar_usearrows = 1
-nnoremap <leader>tb :TagbarToggle<CR>
+"let g:tagbar_usearrows = 1
+"nnoremap <leader>tb :TagbarToggle<CR>
 
-"Ctrlp conf
+" Ctrlp conf
 nnoremap <leader>o :CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 
-"NERDTree
+" NERDTree
 nnoremap <leader>n :NERDTreeToggle<CR>
 
 " Testing alternate esc
