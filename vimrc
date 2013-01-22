@@ -21,6 +21,7 @@ syntax on
 filetype on
 filetype plugin on
 filetype indent on
+set number
  
 " Search settings
 set hlsearch
@@ -35,6 +36,7 @@ nmap <silent> <leader>s :set nolist!<CR>
 " Ctrlp conf
 nnoremap <leader>o :CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
+let g:ctrlp_working_path_mode = ''
 
 " NERDTree
 nnoremap <leader>n :NERDTreeToggle<CR>
