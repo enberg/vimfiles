@@ -25,3 +25,6 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle/zencoding-vim"]
+	path = bundle/zencoding-vim
+	url = http://github.com/mattn/zencoding-vim.git

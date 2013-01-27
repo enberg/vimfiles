@@ -23,6 +23,11 @@ filetype plugin on
 filetype indent on
 set number
  
+" Softtabs
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
 " Search settings
 set hlsearch
 set incsearch 
@@ -32,6 +37,9 @@ nmap <silent> <leader>s :set nolist!<CR>
 
 "let g:tagbar_usearrows = 1
 "nnoremap <leader>tb :TagbarToggle<CR>
+
+" Syntastic conf php
+let g:syntastic_phpcs_disable = 1
 
 " Ctrlp conf
 nnoremap <leader>o :CtrlP<CR>
