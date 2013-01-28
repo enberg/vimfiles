@@ -3,7 +3,7 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-colorscheme wombat256
+colorscheme jellyx
 
 let mapleader = ","
 
@@ -26,7 +26,7 @@ set number
 " Softtabs
 set tabstop=2
 set shiftwidth=2
-set expandtab
+set noexpandtab
 
 " Search settings
 set hlsearch
