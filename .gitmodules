@@ -31,3 +31,6 @@
 [submodule "bundle/jellyx"]
 	path = bundle/jellyx
 	url = https://github.com/guns/jellyx.vim.git
+[submodule "bundle/vim-blade"]
+	path = bundle/vim-blade
+	url = https://github.com/xsbeats/vim-blade.git
