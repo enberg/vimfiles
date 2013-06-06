@@ -3,7 +3,7 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-"set t_Co=256
+set t_Co=256
 "let g:jellyx_show_whitespace = 1
 colorscheme wombat256
 "set background=dark
