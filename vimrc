@@ -68,3 +68,5 @@ nmap <leader>wl :wincmd l<CR>
 
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
+
+nnoremap <silent> <Leader>vr <Plug>VimroomToggle
