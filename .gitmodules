@@ -40,3 +40,6 @@
 [submodule "bundle/vim-symfony"]
 	path = bundle/vim-symfony
 	url = https://github.com/qbbr/vim-symfony.git
+[submodule "bundle/vim-buffergator"]
+	path = bundle/vim-buffergator
+	url = https://github.com/jeetsukumaran/vim-buffergator.git
