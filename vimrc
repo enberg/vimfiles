@@ -4,7 +4,9 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 set t_Co=256
-colorscheme jellyx
+"let g:jellyx_show_whitespace = 1
+colorscheme wombat256
+"set background=dark
 
 let mapleader = ","
 
@@ -66,3 +68,5 @@ nmap <leader>wl :wincmd l<CR>
 
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
+
+nnoremap <silent> <Leader>vr <Plug>VimroomToggle
