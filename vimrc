@@ -27,9 +27,9 @@ filetype indent on
 set number
  
 " Softtabs
-set tabstop=2
-set shiftwidth=2
-set noexpandtab
+set softtabstop=4
+set shiftwidth=4
+set expandtab
 
 " Search settings
 set hlsearch
@@ -69,4 +69,8 @@ nmap <leader>wl :wincmd l<CR>
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-nnoremap <silent> <Leader>vr <Plug>VimroomToggle
+nnoremap <silent> <Leader>mz :VimroomToggle
+
+" Quick numbershift
+nnoremap <silent> <Leader>r :set relativenumber!<CR>
+nnoremap <silent> <Leader>rn :set number!<CR>
