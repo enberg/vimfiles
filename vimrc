@@ -74,3 +74,6 @@ nnoremap <silent> <Leader>mz :VimroomToggle
 " Quick numbershift
 nnoremap <silent> <Leader>r :set relativenumber!<CR>
 nnoremap <silent> <Leader>rn :set number!<CR>
+
+" Mebbe fix supertab/snipmate troubles
+let g:SuperTabDefaultCompletionType = "context"
