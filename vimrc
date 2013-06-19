@@ -14,7 +14,10 @@ let mapleader = ","
 nmap <leader>ve :tabedit $MYVIMRC<CR>
 " Autoload .vimrc post edit
 if has("autocmd")
-	autocmd bufwritepost .vimrc source $MYVIMRC
+    augroup Vimreload
+        autocmd!
+	    autocmd bufwritepost .vimrc source $MYVIMRC
+    augroup END
 endif
 
 " Intuitive backspacing in insert mode
@@ -27,6 +30,7 @@ filetype indent on
 set number
  
 " Softtabs
+set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -42,9 +46,14 @@ nmap <silent> <leader>s :set nolist!<CR>
 "nnoremap <leader>tb :TagbarToggle<CR>
 
 " Syntastic conf php
-let g:syntastic_phpcs_disable = 1
+let g:syntastic_phpcs_disable = 0
+
+" Php-cs-fixer conf
+let g:php_cs_fixer_dry_run = 1
+let g:php_cs_fixer_verbose = 0
 
 " Ctrlp conf
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/cache/*
 nnoremap <leader>o :CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 let g:ctrlp_working_path_mode = ''
@@ -69,11 +78,27 @@ nmap <leader>wl :wincmd l<CR>
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-nnoremap <silent> <Leader>mz :VimroomToggle
+nnoremap <silent> <Leader>vr :VimroomToggle<CR>
 
 " Quick numbershift
-nnoremap <silent> <Leader>r :set relativenumber!<CR>
-nnoremap <silent> <Leader>rn :set number!<CR>
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+nnoremap <silent> <Leader>rn :call NumberToggle()<CR>
 
 " Mebbe fix supertab/snipmate troubles
-let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabDefaultCompletionType = "context"
+
+" Phpunit convenience
+com! -nargs=* Phpunit make -c app <q-args> | cw
+nnoremap <silent> <Leader>t :Phpunit %<CR>
+
+" Grepping
+command! -nargs=+ MyGrep execute 'silent grep! <args>' | copen 33
+
+" Pasta toggle
+set pastetoggle=<F2>
