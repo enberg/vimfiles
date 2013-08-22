@@ -25,9 +25,6 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "bundle/zencoding-vim"]
-	path = bundle/zencoding-vim
-	url = http://github.com/mattn/zencoding-vim.git
 [submodule "bundle/jellyx"]
 	path = bundle/jellyx
 	url = https://github.com/guns/jellyx.vim.git
@@ -70,3 +67,6 @@
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "bundle/emmet-vim"]
+	path = bundle/emmet-vim
+	url = https://github.com/mattn/emmet-vim.git
