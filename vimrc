@@ -42,8 +42,10 @@ set incsearch
 set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
-"let g:tagbar_usearrows = 1
-"nnoremap <leader>tb :TagbarToggle<CR>
+" Ctag stuff
+let g:tagbar_usearrows = 1
+nnoremap <leader>tb :TagbarToggle<CR>
+nnoremap <leader>tl :TlistToggle<CR>
 
 " Syntastic conf php
 let g:syntastic_phpcs_disable = 0
@@ -65,8 +67,8 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 imap jj <esc>
 
 " Tab movement
-nmap <leader>th :tabprevious<CR>
-nmap <leader>tl :tabnext<CR>
+nmap <leader>tp :tabprevious<CR>
+nmap <leader>tn :tabnext<CR>
 nmap <leader>tc :tabclose<CR>
 
 " Window movement
@@ -102,3 +104,10 @@ command! -nargs=+ MyGrep execute 'silent grep! <args>' | copen 33
 
 " Pasta toggle
 set pastetoggle=<F2>
+
+" Fugitive
+nnoremap <silent> <Leader>gs :Gstatus<CR>
+nnoremap <silent> <Leader>gw :Gwrite<CR>
+nnoremap <silent> <Leader>gr :Gread<CR>
+nnoremap <silent> <Leader>gl :Glog<CR>
+nnoremap <silent> <Leader>gb :Gblame<CR>
