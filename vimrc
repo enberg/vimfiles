@@ -2,11 +2,12 @@ filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+set laststatus=2
 
 set t_Co=256
 "let g:jellyx_show_whitespace = 1
-colorscheme wombat256
 "set background=dark
+colorscheme wombat256
 
 let mapleader = ","
 
@@ -111,3 +112,7 @@ nnoremap <silent> <Leader>gw :Gwrite<CR>
 nnoremap <silent> <Leader>gr :Gread<CR>
 nnoremap <silent> <Leader>gl :Glog<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
+
+" Vim airline
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
