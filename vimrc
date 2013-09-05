@@ -116,3 +116,6 @@ nnoremap <silent> <Leader>gb :Gblame<CR>
 " Vim airline
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
+
+" STACKENBLOCHEN
+set colorcolumn=80
