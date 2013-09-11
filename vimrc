@@ -59,6 +59,7 @@ let g:php_cs_fixer_verbose = 0
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/cache/*
 nnoremap <leader>o :CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>f :CtrlPTag<CR>
 let g:ctrlp_working_path_mode = ''
 
 " NERDTree
