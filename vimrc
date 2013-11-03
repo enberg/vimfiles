@@ -17,19 +17,19 @@ nmap <leader>ve :tabedit $MYVIMRC<CR>
 if has("autocmd")
     augroup Vimreload
         autocmd!
-	    autocmd bufwritepost .vimrc source $MYVIMRC
+        autocmd bufwritepost .vimrc source $MYVIMRC
     augroup END
 endif
 
 " Intuitive backspacing in insert mode
 set backspace=indent,eol,start
- 
+
 syntax on
 filetype on
 filetype plugin on
 filetype indent on
 set number
- 
+
 " Softtabs
 set tabstop=4
 set softtabstop=4
@@ -38,7 +38,7 @@ set expandtab
 
 " Search settings
 set hlsearch
-set incsearch 
+set incsearch
 
 set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>

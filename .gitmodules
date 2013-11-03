@@ -76,3 +76,6 @@
 [submodule "bundle/vim-scala"]
 	path = bundle/vim-scala
 	url = https://github.com/derekwyatt/vim-scala.git
+[submodule "bundle/clever-f"]
+	path = bundle/clever-f
+	url = https://github.com/rhysd/clever-f.vim.git
