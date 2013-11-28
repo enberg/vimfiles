@@ -34,9 +34,6 @@
 [submodule "bundle/vimroom"]
 	path = bundle/vimroom
 	url = https://github.com/mikewest/vimroom.git
-[submodule "bundle/vim-symfony"]
-	path = bundle/vim-symfony
-	url = https://github.com/qbbr/vim-symfony.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = https://github.com/garbas/vim-snipmate.git
