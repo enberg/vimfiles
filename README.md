@@ -1,4 +1,4 @@
 vimfiles
 ========
 
-My attempts at making a vim setup
+My vim set-up
