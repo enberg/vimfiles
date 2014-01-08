@@ -43,6 +43,8 @@ set incsearch
 set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
 " Ctag stuff
 let g:tagbar_usearrows = 1
 nnoremap <leader>tb :TagbarToggle<CR>
@@ -94,8 +96,8 @@ function! NumberToggle()
 endfunc
 nnoremap <silent> <Leader>rn :call NumberToggle()<CR>
 
-" Mebbe fix supertab/snipmate troubles
-"let g:SuperTabDefaultCompletionType = "context"
+" Swit commands
+nnoremap ! :!
 
 " Phpunit convenience
 com! -nargs=* Phpunit make -c app <q-args> | cw
