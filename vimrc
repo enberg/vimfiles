@@ -36,6 +36,14 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+" tab deviations
+if has("autocmd")
+    augroup SynTabs
+        autocmd!
+        autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+    augroup END
+endif
+
 " Search settings
 set hlsearch
 set incsearch
