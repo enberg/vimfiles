@@ -73,3 +73,12 @@
 [submodule "bundle/vim-less"]
 	path = bundle/vim-less
 	url = https://github.com/groenewege/vim-less
+[submodule "bundle/clever-f"]
+	path = bundle/clever-f
+	url = https://github.com/rhysd/clever-f.vim.git
+[submodule "bundle/neosnippet.vim"]
+	path = bundle/neosnippet.vim
+	url = https://github.com/Shougo/neosnippet.vim.git
+[submodule "bundle/neocomplete.vim"]
+	path = bundle/neocomplete.vim
+	url = https://github.com/Shougo/neocomplete.vim.git
