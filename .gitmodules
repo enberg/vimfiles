@@ -70,12 +70,6 @@
 [submodule "bundle/vim-scala"]
 	path = bundle/vim-scala
 	url = https://github.com/derekwyatt/vim-scala.git
-[submodule "bundle/clever-f"]
-	path = bundle/clever-f
-	url = https://github.com/rhysd/clever-f.vim.git
-[submodule "bundle/neosnippet"]
-	path = bundle/neosnippet
-	url = https://github.com/Shougo/neosnippet.vim.git
 [submodule "bundle/vim-less"]
 	path = bundle/vim-less
 	url = https://github.com/groenewege/vim-less
