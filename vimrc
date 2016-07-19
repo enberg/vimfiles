@@ -10,6 +10,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/syntastic'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'ervandew/supertab'
 
 " Bundles : Git
 Plugin 'tpope/vim-fugitive'
@@ -21,6 +25,10 @@ Plugin 'mattn/emmet-vim'
 " Bundles : Clojure
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
+
+" Bundles : JavaScript
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 filetype plugin indent on
@@ -125,3 +133,9 @@ nnoremap <silent> <Leader>gb :Gblame<CR>
 
 " STACKENBLOCHEN
 set colorcolumn=80
+
+" Editorconfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+" Syntactic
+let g:syntastic_javascript_checkers = ['eslint']
