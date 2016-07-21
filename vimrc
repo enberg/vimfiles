@@ -25,6 +25,7 @@ Plugin 'mattn/emmet-vim'
 " Bundles : Clojure
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
+Plugin 'kien/rainbow_parentheses.vim'
 
 " Bundles : JavaScript
 Plugin 'pangloss/vim-javascript'
