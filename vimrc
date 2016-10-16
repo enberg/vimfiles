@@ -32,6 +32,12 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
+" Bundles : Rust
+Plugin 'rust-lang/rust.vim'
+
+" Bundles : Elm
+Plugin 'lambdatoast/elm.vim'
+
 call vundle#end()
 filetype plugin indent on
 
