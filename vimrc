@@ -11,13 +11,19 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Bundles
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'scrooloose/syntastic'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'mileszs/ack.vim'
+
+" Bundles : Colors
+Plug 'davidklsn/vim-sialoquent'
+Plug 'arcticicestudio/nord-vim'
 
 " Bundles : Git
 Plug 'tpope/vim-fugitive'
@@ -32,13 +38,13 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'kien/rainbow_parentheses.vim', { 'for': 'clojure' }
 
 " Bundles : JavaScript
-Plug 'pangloss/vim-javascript'
-Plug 'nikvdp/ejs-syntax'
-Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'nikvdp/ejs-syntax', { 'for': 'ejs' }
+Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 
 " Bundles : TypeScript
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 
 " Bundles : Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
@@ -53,8 +59,8 @@ filetype plugin indent on
 
 set t_Co=256
 "let g:jellyx_show_whitespace = 1
-"set background=light
-"colorscheme minimal
+"set background=dark
+colorscheme nord
 
 let mapleader = ","
 
@@ -149,6 +155,22 @@ nnoremap <silent> <Leader>gr :Gread<CR>
 nnoremap <silent> <Leader>gl :Glog<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 
+" Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = './node_modules/.bin/eslint'
+let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+let g:syntastic_typescript_tslint_exec = './node_modules/.bin/tslint'
+
+" Tsuquyomi
+let g:tsuquyomi_disable_quickfix = 1
+autocmd FileType typescript nnoremap <leader>r :TsuReferences<cr>¬
+autocmd FileType typescript nnoremap <leader>d :TsuDefinition<cr>¬
+autocmd FileType typescript nnoremap <leader>t : <C-u>echo tsuquyomi#hint()<CR>
+
 " STACKENBLOCHEN
 set colorcolumn=80
 
@@ -158,3 +180,5 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " Syntactic
 let g:syntastic_javascript_checkers = ['eslint']
 
+" Search
+let g:ackprg = 'ag --nogroup --nocolor --column'
