@@ -15,7 +15,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
@@ -155,15 +155,13 @@ nnoremap <silent> <Leader>gr :Gread<CR>
 nnoremap <silent> <Leader>gl :Glog<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = './node_modules/.bin/eslint'
-let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
-let g:syntastic_typescript_tslint_exec = './node_modules/.bin/tslint'
+" A.L.E.
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\   'typescript': ['tslint'],
+\}
 
 " Tsuquyomi
 let g:tsuquyomi_disable_quickfix = 1
