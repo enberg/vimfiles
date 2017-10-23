@@ -20,6 +20,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'mileszs/ack.vim'
+Plug 'Shougo/unite.vim'
 
 " Bundles : Colors
 Plug 'davidklsn/vim-sialoquent'
@@ -89,14 +90,6 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
-" tab deviations
-if has("autocmd")
-    augroup SynTabs
-        autocmd!
-        autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-    augroup END
-endif
-
 " Search settings
 set hlsearch
 set incsearch
@@ -163,6 +156,21 @@ let g:ale_fixers = {
 \   'typescript': ['tslint'],
 \}
 
+" Unite
+nnoremap <silent> <Leader>u :Unite -start-insert file_rec/git<CR>
+nnoremap <silent> <Leader>b :Unite -start-insert buffer<CR>
+
+" Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = './node_modules/.bin/eslint'
+let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+let g:syntastic_typescript_tslint_exec = './node_modules/.bin/tslint'
+k
+
 " Tsuquyomi
 let g:tsuquyomi_disable_quickfix = 1
 autocmd FileType typescript nnoremap <leader>r :TsuReferences<cr>¬
@@ -180,3 +188,6 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 " Search
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" Supertab
+let g:SuperTabDefaultCompletionType = "context"
