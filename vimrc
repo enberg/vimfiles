@@ -20,6 +20,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'ervandew/supertab'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'mileszs/ack.vim'
+Plug 'Shougo/unite.vim'
 
 " Bundles : Colors
 Plug 'davidklsn/vim-sialoquent'
@@ -89,14 +90,6 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 
-" tab deviations
-if has("autocmd")
-    augroup SynTabs
-        autocmd!
-        autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-    augroup END
-endif
-
 " Search settings
 set hlsearch
 set incsearch
@@ -155,6 +148,10 @@ nnoremap <silent> <Leader>gr :Gread<CR>
 nnoremap <silent> <Leader>gl :Glog<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 
+" Unite
+nnoremap <silent> <Leader>u :Unite -start-insert file_rec/git<CR>
+nnoremap <silent> <Leader>b :Unite -start-insert buffer<CR>
+
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -182,3 +179,6 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 " Search
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" Supertab
+let g:SuperTabDefaultCompletionType = "context"
