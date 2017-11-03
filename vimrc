@@ -46,6 +46,7 @@ Plug 'mxw/vim-jsx', { 'for': 'javascript' }
 " Bundles : TypeScript
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
+Plug 'ianks/vim-tsx'
 
 " Bundles : Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
