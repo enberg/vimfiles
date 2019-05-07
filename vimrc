@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 
 " Bundles
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-apathy'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -21,13 +22,17 @@ Plug 'ervandew/supertab'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'mileszs/ack.vim'
 Plug 'Shougo/unite.vim'
+Plug 'RRethy/vim-hexokinase'
 
 " Bundles : Colors
 Plug 'davidklsn/vim-sialoquent'
 Plug 'arcticicestudio/nord-vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 
 " Bundles : Git
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'int3/vim-extradite'
 
 " Bundles : HTML
@@ -59,10 +64,16 @@ call plug#end()
 
 filetype plugin indent on
 
-set t_Co=256
+syntax on
+set number
+
+set path+=**
+set wildmenu
+
 "let g:jellyx_show_whitespace = 1
-"set background=dark
-colorscheme nord
+set background=dark
+colorscheme gruvbox
+" let g:solarized_termtrans = 1
 
 let mapleader = ","
 
@@ -76,14 +87,10 @@ if has("autocmd")
     augroup END
 endif
 
+set foldmethod=manual
+
 " Intuitive backspacing in insert mode
 set backspace=indent,eol,start
-
-syntax on
-filetype on
-filetype plugin on
-filetype indent on
-set number
 
 " Softtabs
 set tabstop=2
@@ -150,31 +157,41 @@ nnoremap <silent> <Leader>gl :Glog<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 
 " A.L.E.
+let g:ale_typescript_tsserver_executable = '/usr/local/bin/tsserver'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
-let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\   'typescript': ['tslint'],
-\}
+let g:ale_fixers = {'typescript': ['tslint']}
 
 " Unite
-nnoremap <silent> <Leader>u :Unite -start-insert file_rec/git<CR>
-nnoremap <silent> <Leader>b :Unite -start-insert buffer<CR>
+let g:unite_source_history_yank_enable = 1
+let g:unite_source_rec_async_command = ['ag', '--follow', '--nocolor', '--nogroup',  '--hidden', '-g', '']
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <silent> <leader>u :<C-u>Unite -no-split -buffer-name=gitfiles -start-insert file_rec/git<CR>
+nnoremap <silent> <leader>f :<C-u>Unite -no-split -buffer-name=files    -start-insert file_rec/async<cr>
+nnoremap <silent> <leader>e :<C-u>Unite -no-split -buffer-name=mru      -start-insert file_mru<cr>
+nnoremap <silent> <leader>o :<C-u>Unite -no-split -buffer-name=outline  -start-insert outline<cr>
+nnoremap <silent> <leader>y :<C-u>Unite -no-split -buffer-name=yank     history/yank<cr>
+nnoremap <silent> <leader>b :<C-u>Unite -no-split -buffer-name=buffer   buffer<cr>
 
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = './node_modules/.bin/eslint'
-let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
-let g:syntastic_typescript_tslint_exec = './node_modules/.bin/tslint'
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " Play nice with supertab
+  let b:SuperTabDisabled=1
+  " Enable navigation with control-j and control-k in insert mode
+  imap <buffer> <C-r>   <Plug>(unite_redraw)
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+	imap <silent><buffer><expr> <C-s>     unite#do_action('split')
+	imap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
+endfunction
 
 " Tsuquyomi
 let g:tsuquyomi_disable_quickfix = 1
-autocmd FileType typescript nnoremap <leader>r :TsuReferences<cr>¬
-autocmd FileType typescript nnoremap <leader>d :TsuDefinition<cr>¬
+let g:tsuquyomi_single_quote_import = 1
+autocmd FileType typescript nnoremap <leader>m :TsuRenameSymbol<cr>
+autocmd FileType typescript nnoremap <leader>r :TsuReferences<cr>
+autocmd FileType typescript nnoremap <leader>d :TsuDefinition<cr>
 autocmd FileType typescript nnoremap <leader>t : <C-u>echo tsuquyomi#hint()<CR>
 
 " STACKENBLOCHEN
@@ -182,9 +199,6 @@ set colorcolumn=80
 
 " Editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-
-" Syntactic
-let g:syntastic_javascript_checkers = ['eslint']
 
 " Search
 let g:ackprg = 'ag --nogroup --nocolor --column'
