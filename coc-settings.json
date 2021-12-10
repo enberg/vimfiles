@@ -1,0 +1,7 @@
+{
+    "coc.preferences.formatOnType": true,
+    "diagnostic.checkCurrentLine": true,
+    "tailwindCSS.validate": true,
+    "tailwindCSS.emmetCompletions": true,
+    "prettier.requireConfig": true
+}
