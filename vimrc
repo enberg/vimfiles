@@ -58,6 +58,10 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'editorconfig/editorconfig-vim'
 
+" Bundles : fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 " Bundles : CoC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -167,6 +171,11 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 " Use <c-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-tab> coc#refresh()
@@ -209,3 +218,9 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+
+" FZF
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>g :GFiles<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>h :History<CR>
